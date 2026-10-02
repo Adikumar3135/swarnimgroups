@@ -1,0 +1,26 @@
+SWARNIM GROUPS — SECURITY / UX UPDATE
+
+Implemented in this package:
+1. Premium home-page loading animation using the Swarnim logo and orbiting dots of varied sizes.
+2. Guest login reminder on the home page after 60 seconds, shown once per browser session.
+   - It first checks auth-status.php.
+   - Logged-in users never see the reminder.
+   - If the auth check cannot be completed, the reminder is not shown.
+3. PWA install script is now actually included on the home page. The browser install prompt is controlled by beforeinstallprompt; it is not forced repeatedly.
+4. Offline PWA fallback page with Swarnim logo and animated offline indicator.
+5. Service worker upgraded to v4 and caches the offline page and essential public shell assets.
+6. Private/customer/admin/employee/API routes are not cached by the public service worker.
+7. PHP sessions use strict mode and HttpOnly/SameSite cookies.
+8. Added security response headers: nosniff, SAMEORIGIN, strict-origin-when-cross-origin and a restricted Permissions-Policy.
+9. Added a simple login brute-force throttle: 8 failed attempts for the same email/IP within 15 minutes returns HTTP 429.
+10. Fixed the customer login redirect from the stale index.html path to index.php.
+11. SQL access reviewed: application database writes/reads that use user input use PDO prepared statements. No raw user-controlled SQL interpolation was found in the quick heuristic audit.
+12. Upload directories already deny executable PHP-family uploads; sensitive .env/SQL/log/config-like files are denied by .htaccess.
+
+Important:
+- No web application can honestly be called "100% hacker-proof".
+- Keep HTTPS enabled in production.
+- Keep .env outside public hosting where possible and never commit credentials.
+- Configure database credentials with a least-privileged DB account.
+- Run the included application behind a current PHP version and patched Apache/Nginx/MySQL.
+- For a real production security assessment, perform authenticated penetration testing and server-level review as well.

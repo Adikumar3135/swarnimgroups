@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /employee/
+Disallow: /uploads/
+Disallow: /.env
+Disallow: /config.php
+Disallow: /database.sql
+Sitemap: /electronic/sitemap.php

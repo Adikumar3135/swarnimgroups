@@ -1,0 +1,80 @@
+
+.sw-install-btn{position:fixed;right:18px;bottom:18px;z-index:9998;border:1px solid rgba(244,197,66,.35);background:linear-gradient(135deg,#f4c542,#e4a817);color:#111;padding:11px 15px;border-radius:999px;font:700 13px/1 inherit;box-shadow:0 14px 35px rgba(0,0,0,.28);cursor:pointer;display:flex;gap:8px;align-items:center;transition:.25s}
+.sw-install-btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(244,197,66,.2)}
+.sw-install-btn span:first-child{width:20px;height:20px;border:1px solid rgba(0,0,0,.25);border-radius:50%;display:grid;place-items:center}
+@media(max-width:600px){.sw-install-btn{right:12px;bottom:12px}}
+.sw-notify-prompt{position:fixed;right:18px;bottom:78px;z-index:9997;background:rgba(12,16,25,.96);border:1px solid rgba(244,197,66,.25);backdrop-filter:blur(16px);color:#fff;padding:14px 16px;border-radius:16px;max-width:330px;box-shadow:0 20px 60px rgba(0,0,0,.4);display:none}
+.sw-notify-prompt.show{display:block;animation:swPop .3s ease}
+.sw-notify-prompt strong{display:block;margin-bottom:5px}.sw-notify-prompt p{font-size:12px;color:#aeb6c7;margin:0 0 10px;line-height:1.5}
+.sw-notify-prompt button{border:0;border-radius:10px;padding:9px 12px;background:#f4c542;color:#111;font-weight:700;cursor:pointer}
+@keyframes swPop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+
+/* ---------- Swarnim premium page loader ---------- */
+.sw-page-loader{
+  position:fixed;inset:0;z-index:100000;display:grid;place-items:center;
+  background:#050811;opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease;
+}
+.sw-page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.sw-loader-orbit{position:relative;width:190px;height:190px;border-radius:50%;animation:swRing 7s linear infinite}
+.sw-loader-orbit:before{
+  content:"";position:absolute;inset:22px;border:1px solid rgba(245,196,81,.14);
+  border-radius:50%;box-shadow:0 0 50px rgba(245,196,81,.08),inset 0 0 45px rgba(93,228,255,.05);
+}
+.sw-dot{position:absolute;left:50%;top:50%;border-radius:50%;background:var(--gold,#f5c451);
+  box-shadow:0 0 20px rgba(245,196,81,.55);transform-origin:0 0;
+  
+}
+.sw-dot.d1{width:10px;height:10px;transform:rotate(0deg) translateX(77px)}
+.sw-dot.d2{width:16px;height:16px;transform:rotate(45deg) translateX(73px)}
+.sw-dot.d3{width:7px;height:7px;transform:rotate(90deg) translateX(79px)}
+.sw-dot.d4{width:21px;height:21px;transform:rotate(135deg) translateX(68px)}
+.sw-dot.d5{width:9px;height:9px;transform:rotate(180deg) translateX(78px);animation-delay:-1.12s}
+.sw-dot.d6{width:14px;height:14px;transform:rotate(225deg) translateX(74px);animation-delay:-1.4s}
+.sw-dot.d7{width:6px;height:6px;transform:rotate(270deg) translateX(80px);animation-delay:-1.68s}
+.sw-dot.d8{width:18px;height:18px;transform:rotate(315deg) translateX(70px);animation-delay:-1.96s}
+@keyframes swOrbit{to{transform:rotate(360deg) translateX(77px)}}
+.sw-loader-logo{position:absolute;inset:0;display:grid;place-items:center}
+.sw-loader-logo img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(245,196,81,.28));animation:swLogoPulse 1.8s ease-in-out infinite}
+@keyframes swLogoPulse{50%{transform:scale(1.07);filter:drop-shadow(0 0 32px rgba(245,196,81,.48))}}
+.sw-loader-name{position:absolute;top:calc(50% + 125px);font:800 12px/1 "Space Grotesk",sans-serif;letter-spacing:.28em;color:#e9edf5}
+.sw-loader-line{position:absolute;top:calc(50% + 151px);width:120px;height:2px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.sw-loader-line span{display:block;width:42%;height:100%;background:linear-gradient(90deg,transparent,#f5c451,transparent);animation:swLoadLine 1.15s ease-in-out infinite}
+@keyframes swLoadLine{to{transform:translateX(185px)}}
+
+/* ---------- Guest login reminder ---------- */
+.sw-login-reminder{position:fixed;inset:0;z-index:99990;display:none;align-items:center;justify-content:center;padding:20px}
+.sw-login-reminder.show{display:flex;animation:swFadeIn .3s ease}
+.sw-login-backdrop{position:absolute;inset:0;background:rgba(2,5,10,.74);backdrop-filter:blur(10px)}
+.sw-login-card{position:relative;width:min(510px,100%);padding:34px;border:1px solid rgba(245,196,81,.22);
+  border-radius:30px;background:linear-gradient(145deg,rgba(19,26,40,.98),rgba(7,11,20,.98));
+  box-shadow:0 35px 100px rgba(0,0,0,.5);overflow:hidden;transform:translateY(12px) scale(.97);
+  animation:swLoginCard .45s cubic-bezier(.2,.8,.2,1) forwards}
+.sw-login-card:before{content:"";position:absolute;width:230px;height:230px;right:-110px;top:-120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,196,81,.2),transparent 70%);pointer-events:none}
+@keyframes swFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes swLoginCard{to{transform:none}}
+.sw-login-close{position:absolute;right:18px;top:18px;width:38px;height:38px;border:1px solid var(--line,#ffffff1a);
+  border-radius:12px;background:rgba(255,255,255,.05);color:var(--text,#fff);font-size:24px;line-height:1}
+.sw-login-mark{width:62px;height:62px;border-radius:18px;background:rgba(245,196,81,.08);border:1px solid rgba(245,196,81,.2);
+  display:grid;place-items:center;margin-bottom:22px}
+.sw-login-mark img{width:48px;height:48px;object-fit:contain}
+.sw-login-kicker{font:800 11px/1 "Space Grotesk",sans-serif;letter-spacing:.2em;color:#f5c451}
+.sw-login-card h2{font-size:clamp(1.8rem,5vw,2.5rem);margin:12px 0 12px;letter-spacing:-.04em}
+.sw-login-card p{color:#9ba5b7;line-height:1.7}
+.sw-login-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.sw-login-actions .ghost{border:1px solid rgba(255,255,255,.12);padding:13px 18px;border-radius:14px}
+.sw-login-note{display:flex;align-items:center;gap:8px;color:#7f8b9f;font-size:.78rem;margin-top:20px}
+.sw-login-note span{width:7px;height:7px;border-radius:50%;background:#62e6a4;box-shadow:0 0 0 6px rgba(98,230,164,.08)}
+@media(max-width:600px){
+ .sw-loader-orbit{width:160px;height:160px}
+ .sw-dot.d1{transform:rotate(0deg) translateX(64px)}.sw-dot.d2{transform:rotate(45deg) translateX(60px)}
+ .sw-dot.d3{transform:rotate(90deg) translateX(66px)}.sw-dot.d4{transform:rotate(135deg) translateX(56px)}
+ .sw-dot.d5{transform:rotate(180deg) translateX(65px)}.sw-dot.d6{transform:rotate(225deg) translateX(61px)}
+ .sw-dot.d7{transform:rotate(270deg) translateX(67px)}.sw-dot.d8{transform:rotate(315deg) translateX(58px)}
+ .sw-loader-name{top:calc(50% + 105px)}
+ .sw-loader-line{top:calc(50% + 130px)}
+ .sw-login-card{padding:28px 22px;border-radius:24px}
+}
+
+@keyframes swRing{to{transform:rotate(360deg)}}
